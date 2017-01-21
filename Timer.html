@@ -12,10 +12,12 @@
 		var activation
 		var interval
 		var clearint
+		var audio = new Audio("beep.mp3");
 
 		function activate(){
-			alert("Concentrate!");
-			activation = window.setTimeout(function() {alert("Activate!");}, 1800000);
+			audio.play();
+			alert("Concentrate!"); 
+			activation = window.setTimeout(function() {audio.play(); alert("Activate!");}, 5000);
 		}
 
 		function StartCycle(){
