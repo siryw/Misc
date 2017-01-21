@@ -9,17 +9,18 @@
 		}
 	</style>
 	<script>
-		var concentration
+		var activation
 		var interval
 		var clearint
 
 		function activate(){
-			alert("activate!");
-			concentration = window.setTimeout(function() {alert("concentrate!");}, 60000);
+			alert("Concentrate!");
+			activation = window.setTimeout(function() {alert("Activate!");}, 1800000);
 		}
 
 		function StartCycle(){
-			interval = window.setInterval(activate, 240000);
+			activate();
+			interval = window.setInterval(activate, 2400000);
 		}
 
 		function StopCycle(){
