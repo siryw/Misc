@@ -7,17 +7,83 @@
 			padding-top: 20%;
 			text-align: center;
 		}
+		#list {
+			text-align: left;
+			padding-left: 25%;
+		}
 	</style>
 	<script>
+		// This is the beeping noise for the alerts
+		var audio = new Audio("beep.mp3");
+
+
+		// This is to check the time and alert according to the time
+		function checkTime (){
+			var time = new Date();
+			var now = time.getHours() * 100 + time.getMinutes();
+			if (now == 900) {
+				audio.play();
+				alert("Time to start your day! get to work!");
+			}  
+			else if (now == 1100) {
+				audio.play();
+				alert("Break time!");
+			}  
+			else if (now == 1115) {
+				audio.play();
+				alert("Break's over get back to work!");
+			}  
+			else if (now == 1315) {
+				audio.play();
+				alert("Lunch time, take a break!");
+			}  
+			else if (now == 1415) {
+				audio.play();
+				alert("Lunch is over! get to work!");
+			}  
+			else if (now == 1615) {
+				audio.play();
+				alert("Break time!");
+			}  
+			else if (now == 1830) {
+				audio.play();
+				alert("Dinner time! great job today!");
+			}  
+			else if (now == 1930) {
+				audio.play();
+				alert("Time for Self Improvement");
+			}  
+			else if (now == 2050) {
+				audio.play();
+				alert("Take a break!");
+			}  
+			else if (now == 2110) {
+				audio.play();
+				alert("Just a little more SI");
+			} 
+			else if (now == 2230) {
+				audio.play();
+				alert("Get off the computer lights out time");
+			}
+			else if (now == 2330) {
+				audio.play();
+				alert("Get off the computer lights out time");
+			}  
+		}
+		var timer = window.setInterval(checkTime, 60000);
+
+
+		// This is for the Cycle timer buttons 
 		var activation
 		var interval
 		var clearint
-		var audio = new Audio("beep.mp3");
-
-		function activate(){
+		function alarm(message){
 			audio.play();
-			alert("Concentrate!"); 
-			activation = window.setTimeout(function() {audio.play(); alert("Activate!");}, 1800000);
+			alert(message);
+		}
+		function activate(){
+			alarm("Concentrate!"); 
+			activation = window.setTimeout(function() {alarm("Activate!");}, 1800000);
 		}
 
 		function StartCycle(){
@@ -31,7 +97,29 @@
 	</script>
 </head>
 <body>
-	<h1> Productivity timer </h1>
+	<h1> Productivity App </h1>
+	<p> This is a simple productivity app. It will alert me according to this schedule:</p>
+		<div id="list">
+		<p>
+		08:00am Wake up<br>
+		09:00am Clock in<br>
+		11:00am Break<br>
+		01:15pm Lunch<br>
+		02:15pm Clock in<br>
+		04:15pm Break<br>
+		06:30pm Dinner<br>
+		07:30pm Self improvement<br>
+		08:50pm Break<br>
+		09:10pm Self improvement<br>
+		10:30pm Free time<br>
+		11:30pm Lights out<br>
+		12:00am Sleep<br>
+		</p>
+		</div>
+	<br>
+	<br>
+	<p> These buttons are for concentration/activation cycles</p>
+	<p> 30 minutes of concentration followed by 10 minutes of activation </p>
 	<button onclick="StartCycle()"> Start cycle </button>
 	<button onclick="StopCycle()"> Stop cycle </button>
 </body>
