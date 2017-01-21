@@ -15,60 +15,55 @@
 	<script>
 		// This is the beeping noise for the alerts
 		var audio = new Audio("beep.mp3");
-
+		function alarm(message){
+			audio.play();
+			alert(message);
+		}
 
 		// This is to check the time and alert according to the time
 		function checkTime (){
 			var time = new Date();
 			var now = time.getHours() * 100 + time.getMinutes();
-			if (now == 900) {
-				audio.play();
-				alert("Time to start your day! get to work!");
-			}  
-			else if (now == 1100) {
-				audio.play();
-				alert("Break time!");
-			}  
-			else if (now == 1115) {
-				audio.play();
-				alert("Break's over get back to work!");
-			}  
-			else if (now == 1315) {
-				audio.play();
-				alert("Lunch time, take a break!");
-			}  
-			else if (now == 1415) {
-				audio.play();
-				alert("Lunch is over! get to work!");
-			}  
-			else if (now == 1615) {
-				audio.play();
-				alert("Break time!");
-			}  
-			else if (now == 1830) {
-				audio.play();
-				alert("Dinner time! great job today!");
-			}  
-			else if (now == 1930) {
-				audio.play();
-				alert("Time for Self Improvement");
-			}  
-			else if (now == 2050) {
-				audio.play();
-				alert("Take a break!");
-			}  
-			else if (now == 2110) {
-				audio.play();
-				alert("Just a little more SI");
-			} 
-			else if (now == 2230) {
-				audio.play();
-				alert("Get off the computer lights out time");
-			}
-			else if (now == 2330) {
-				audio.play();
-				alert("Get off the computer lights out time");
-			}  
+				switch (now) {
+				case 900:
+					alarm("Time to start your day! get to work!");
+					break;
+			  	case 1100:
+					alarm("Break time!");
+					break;
+				case 1115:
+					alarm("Break's over get back to work!");
+					break;
+				case 1315:
+					alarm("Lunch time, take a break!");
+					break;
+				case 1415:
+					alarm("Lunch is over! get to work!");
+					break;
+				case 1615:
+					alarm("Break time!");
+					break;
+				case 1830:
+					alarm("Dinner time! great job today!");
+					break;
+				case 1930:
+					alarm("Time for Self Improvement");
+					break;
+				case 2050:
+					alarm("Take a break!");
+					break;
+				case 2110:
+					alarm("Just a little more SI");
+					break;
+				case 2230:
+					alarm("Free time!");
+					break;
+				case 2330:
+					alarm("Get off the computer lights out time");
+					break;
+				default:
+					break;
+		  	}
 		}
 		var timer = window.setInterval(checkTime, 60000);
 
@@ -77,10 +72,7 @@
 		var activation
 		var interval
 		var clearint
-		function alarm(message){
-			audio.play();
-			alert(message);
-		}
+		
 		function activate(){
 			alarm("Concentrate!"); 
 			activation = window.setTimeout(function() {alarm("Activate!");}, 1800000);
